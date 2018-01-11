@@ -1,6 +1,6 @@
 ;(function ($) {
   var api = {
-    baseURL: '//quq.cat',
+    baseURL: '//movom.cc',
     get: '/api/like?action=get',
     add: '/api/like?action=add',
   }

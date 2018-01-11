@@ -4,8 +4,19 @@
   * @example
   * <%- thumbnail(post) %>
 */
-
+const path = require('path')
 /* global hexo */
 hexo.extend.helper.register('thumbnail', function (post) {
-  return post.thumbnail || post.banner || ''
+  // 给hexo拓展方法
+  // 此处post即为page 从外部传入
+  target = post.thumbnail || post.banner || ''
+  // 判断banner图片是否是网络图片，如果是网络图片直接使用否者加上根路径
+  if (post.banner) {
+    var banner = this.url_for(post.path)  +  target
+    if (target.indexOf('http') > 0 || /^\/\//.test(target)) {
+      banner = target
+    }
+    return banner
+  }
+  return target
 })

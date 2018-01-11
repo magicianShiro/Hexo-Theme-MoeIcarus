@@ -5,11 +5,13 @@
         <%- (theme.customize.logo && theme.customize.logo.enabled ? '<i class="logo"></i>':'') %>
         <span class="site-title"><%= config.title %></span>
       </a>
+      <!--nav部分-->
       <nav id="main-nav">
         <% for (var i in theme.menu) { %>
-          <a class="main-nav-link" href="<%- url_for(theme.menu[i]) %>"><%= i %></a>
+          <a class="<%- is_current(theme.menu[i]) ? 'main-nav-link active' : 'main-nav-link' %>" href="<%- url_for(theme.menu[i]) %>"><%= i %></a>
         <% } %>
       </nav>
+      <!--移动端个人信息头像部分-->
       <% if(theme.customize.profile && theme.customize.profile.enabled) { %>
         <% var profile = theme.customize.profile; %>
         <nav id="sub-nav">
@@ -21,9 +23,12 @@
           </div>
         </nav>
       <% } %>
+      <!-- 搜索 -->
       <%- partial('search/index') %>
     </div>
   </div>
+  <!--移动端nav部分-->
+  <!--通过media控制显示和隐藏-->
   <div id="main-nav-mobile" class="header-sub header-inner">
     <table class="menu outer">
       <tr>

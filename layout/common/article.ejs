@@ -1,3 +1,5 @@
+<!--slug和direction不知从何而来-->
+<!-- post即为page 从post文件传过来的 -->
 <article id="<%= post.layout %>-<%= post.slug %>" class="article article-type-<%= post.layout %><%= (post.direction && post.direction.toLowerCase() === 'rtl' ? ' rtl' : '') %>" itemscope itemprop="blogPost">
   <div class="article-inner">
     <% if (is_post()) { %>
@@ -6,6 +8,7 @@
         ;!(function($) {
           var max = 99;
           var index = Math.floor(Math.random() * max) + 1;
+          // 文章背景图片的由来
           $('.background').css({ backgroundImage: 'url("/css/images/article/'+ index +'.png")', opacity: 0.5 });
         })(jQuery)
       </script>

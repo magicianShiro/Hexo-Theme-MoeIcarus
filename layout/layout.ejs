@@ -1,13 +1,18 @@
+<!-- 文章中用到的__应该是语言包 -->
+<!-- page.xxx 这个xxx可以是md文件的头部,比如文章中的banner -->
 <%- partial('common/head') %>
 <body>
   <div id="container">
     <%- partial('common/header') %>
+    <!--个人信息部分-->
     <div class="outer">
       <% if (theme.customize.profile.enabled) { %>
         <%- partial('common/profile', null, {cache: !config.relative_link}) %>
       <% } %>
+      <!--body 对应的就是 post page tag categories 这些定义好的页面文件-->
       <section id="main"><%- body %></section>
       <% if (theme.customize.sidebar) { %>
+        <!--slidebar 右侧部分-->
         <%- partial('common/sidebar', null, {cache: !config.relative_link}) %>
       <% } %>
     </div>

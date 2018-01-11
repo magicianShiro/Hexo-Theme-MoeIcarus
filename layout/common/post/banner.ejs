@@ -1,13 +1,21 @@
+<!--判断banner图片是否是网络图片，如果是网络图片直接使用否者加上根路径-->
+<%  
+  var src = url_for(post.path)  +  post.banner
+  if (post.banner.indexOf('http') > 0 || /^\/\//.test('/avc')) {
+    src = post.banner
+  }
+%>
 <% if (post.link) { %>
 	<a href="<%- url_for(post.link) %>" target="_blank" itemprop="url">
-    <img src="<%- post.banner %>" class="article-banner" />
+    <img src="<%- src %>" class="article-banner" />
   </a>
 <% } else if (post.title) { %>
+  
 	<% if (index) { %>
 		<a href="<%- url_for(post.path) %>" itemprop="url">
-      <img src="<%- post.banner %>" class="article-banner" />
+      <img src="<%= src %>" class="article-banner" />
     </a>
 	<% } else { %>
-		<img src="<%- post.banner %>" class="article-banner" />
+		<img src="<%= src %>" class="article-banner" />
 	<% } %>
 <% } %>
