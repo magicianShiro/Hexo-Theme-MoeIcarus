@@ -2,6 +2,9 @@
 
 (function ($) {
   var toTop = ($('#sidebar').height() - $(window).height()) + 60
+  var scrollHeight = $(document).height() - $(window).height()
+  var toButtom = scrollHeight - toTop
+  // console.log($(document).height())
   // Caption
   $('.article-entry').each(function (i) {
     $(this).find('img').each(function () {
@@ -46,21 +49,52 @@
   // To Top
   if ($('#sidebar').length) {
     $(document).on('scroll', function () {
+      // to Top
       if ($(document).width() >= 800) {
         if (($(this).scrollTop() > toTop) && ($(this).scrollTop() > 0)) {
           $('#toTop').fadeIn()
-          $('#toTop').css('left', $('#sidebar').offset().left)
         } else {
           $('#toTop').fadeOut()
         }
       } else {
         $('#toTop').fadeIn()
-        $('#toTop').css('right', 20)
       }
     }).on('click', '#toTop', function () {
       $('body, html').animate({ scrollTop: 0 }, 600)
     })
   }
+  // to Buttom
+  if ($('#sidebar').length) {
+    $(document).on('scroll', function () {
+      if ($(document).width() >= 800) {
+        if (($(this).scrollTop() < toButtom)) {
+          $('#toButtom').fadeIn()
+        } else {
+          $('#toButtom').fadeOut()
+        }
+      } else {
+        $('#toButtom').fadeIn()
+      }
+    }).on('click', '#toButtom', function () {
+      $('body, html').animate({ scrollTop: scrollHeight }, 600)
+    })
+  }
+  // to Top Image
+  $('#toTop').on('mouseover', 'img', function () {
+    $(this).attr('src', $(this).attr('src').replace('c.png', 'd.png'))
+    $(this).parent().stop().animate({ bottom: 0, right: 0 }, 300)
+  }).on('mouseout', 'img', function () {
+    $(this).attr('src', $(this).attr('src').replace('d.png', 'c.png'))
+    $(this).parent().stop().animate({ bottom: -7, right: -7 }, 300)
+  })
+  // to Bottom Image
+  $('#toButtom').on('mouseover', 'img', function () {
+    $(this).attr('src', $(this).attr('src').replace('a.png', 'b.png'))
+    $(this).parent().stop().animate({ bottom: 0, left: 0 }, 300)
+  }).on('mouseout', 'img', function () {
+    $(this).attr('src', $(this).attr('src').replace('b.png', 'a.png'))
+    $(this).parent().stop().animate({ bottom: -7, left: -7 }, 300)
+  })
 
   // visibilitychange
   var link = $('link[rel="icon"]')
