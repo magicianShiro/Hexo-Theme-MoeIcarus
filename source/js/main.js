@@ -4,7 +4,6 @@
   var toTop = ($('#sidebar').height() - $(window).height()) + 60
   var scrollHeight = $(document).height() - $(window).height()
   var toButtom = scrollHeight - toTop
-  // console.log($(document).height())
   // Caption
   $('.article-entry').each(function (i) {
     $(this).find('img').each(function () {
@@ -101,7 +100,7 @@
   var title = document.title
   var map = {
     0: { icon: link.attr('href'), title: '(/≧▽≦/)咦！又好了！' + title },
-    1: { icon: '//www.anotherhome.net/wp-content/themes/Amativeness/fail.ico', title: '(●—●)喔哟，崩溃啦！' }
+    1: { icon: '//diygod.me/images/failure.ico', title: '(●—●)喔哟，崩溃啦！' }
   }
   $(window).on('visibilitychange', function () {
     var data = map[+document.hidden]
