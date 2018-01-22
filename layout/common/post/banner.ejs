@@ -1,9 +1,6 @@
 <!--判断banner图片是否是网络图片，如果是网络图片直接使用否者加上根路径-->
 <%  
-  var src = url_for(post.path)  +  post.banner
-  if (post.banner.indexOf('http') > 0 || /^\/\//.test('/avc')) {
-    src = post.banner
-  }
+  var src = thumbnail(post)
 %>
 <% if (post.link) { %>
 	<a href="<%- url_for(post.link) %>" target="_blank" itemprop="url">
