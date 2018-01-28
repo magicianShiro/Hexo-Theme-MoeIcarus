@@ -2,6 +2,7 @@
 support-for-ie = false
 use-radius-avatar = true
 use-fixed-nav = true
+is-have-banner = hexo-config("customize.banner.enabled")
 vendor-prefixes = webkit moz ms official
 
 // Colors
@@ -32,13 +33,19 @@ logo-url = hexo-config("customize.logo.url")
 logo-width = 0px + hexo-config("customize.logo.width")
 logo-height = 0px + hexo-config("customize.logo.height")
 
+// Banner
+banner-url = hexo-config("customize.banner.url")
+
 // Sidebar
 sidebar = hexo-config("customize.sidebar")
 thumbnail-default-small = 'images/thumb-default-small.png'
 
 // Profile bar
 profile = hexo-config("customize.profile.enabled")
-profile-avatar-size = 128px
+if is-have-banner
+  profile-avatar-size = 100px
+else
+  profile-avatar-size = 128px
 profile-opacity = .85
 profile-backdrop-filter-blur = 10px
 

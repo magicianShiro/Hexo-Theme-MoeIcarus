@@ -125,10 +125,12 @@ code
     if use-fixed-nav
       margin-top: header-height
       @media mq-mini
-        margin-top: header-height + header-sub-height
+        // margin-top: header-height + header-sub-height
+        margin-top: 0
       @media mq-mobile
-        margin-top: header-height + header-sub-height
-
+        // margin-top: header-height + header-sub-height
+        margin-top: 0
+  
 #main
   @media mq-normal
     column(main-column)
@@ -152,6 +154,7 @@ code
 @import "_partial/footer"
 @import "_partial/sidebar"
 @import "_partial/insight"
+@import "_partial/banner"
 @import "_util/highlight"
 
 if sidebar is left

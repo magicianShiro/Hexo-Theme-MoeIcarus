@@ -10,8 +10,10 @@
         var getRunTime = <%= getRunTime %>
         getRunTime.call(document.getElementById('runTime'), '2017-07-11 14:58:05')
       </script>
-      <% if (theme.plugins.hitokoto) { %>
-        <%- partial('plugin/hitokoto') -%>
+      <% if (!theme.customize.banner.enabled) { %>
+        <% if (theme.plugins.hitokoto) { %>
+          <%- partial('plugin/hitokoto') -%>
+        <% } %>
       <% } %>
     </div>
   </div>

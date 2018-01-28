@@ -29,14 +29,18 @@
     background: white
     .base-info
       #avatar
-        display: block
-        margin: 10px auto 20px
-        width: profile-avatar-size
-        height: profile-avatar-size
-        if use-radius-avatar
-          border-radius: profile-avatar-size
-          &:hover
-            animation: resize .2s linear
+        if is-have-banner
+          display: block;
+          width: 100%;
+        else
+          display: block
+          margin: 10px auto 20px
+          width: profile-avatar-size
+          height: profile-avatar-size
+          if use-radius-avatar
+            border-radius: profile-avatar-size
+            &:hover
+              animation: resize .2s linear
       #name, #title, #location, #bio
         display: block
         text-align: center
