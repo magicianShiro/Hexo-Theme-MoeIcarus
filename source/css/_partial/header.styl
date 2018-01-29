@@ -1,6 +1,7 @@
 #header
   @extend $block
   background: rgba(255, 255, 255, header-opacity);
+  transition: transform .3s;
   if use-fixed-nav
     position: fixed;
     z-index: 998;
@@ -17,6 +18,8 @@
     color: color-default
   a:hover, a.active
     color: color-link
+  &.hide
+    transform: translateY(-100%)
 
 $header-block
   height: logo-height

@@ -45,39 +45,72 @@
     e.stopPropagation()
   })
 
-  // To Top
   if ($('#sidebar').length) {
     $(document).on('scroll', function () {
-      // to Top
+      // 隐藏header
+      // console.log($(document).scrollTop())
+
+      // let currentScroll = $(this).scrollTop()
+      // let prevScoll = 0
+      // if (currentScroll - prevScoll > 100) {
+      //   $('#header').addClass('hide')
+      // }
+
       if ($(document).width() >= 800) {
+        // to Top
         if (($(this).scrollTop() > toTop) && ($(this).scrollTop() > 0)) {
+          // $('#header').addClass('hide')
+
           $('#toTop').fadeIn()
         } else {
+          // $('#header').removeClass('hide')
           $('#toTop').fadeOut()
         }
-      } else {
-        $('#toTop').fadeIn()
-      }
-    }).on('click', '#toTop', function () {
-      $('body, html').animate({ scrollTop: 0 }, 600)
-    })
-  }
-  // to Buttom
-  if ($('#sidebar').length) {
-    $(document).on('scroll', function () {
-      if ($(document).width() >= 800) {
+        // to Buttom
         if (($(this).scrollTop() < toButtom)) {
           $('#toButtom').fadeIn()
         } else {
           $('#toButtom').fadeOut()
         }
       } else {
+        $('#toTop').fadeIn()
         $('#toButtom').fadeIn()
       }
+    }).on('click', '#toTop', function () {
+      $('body, html').animate({ scrollTop: 0 }, 600)
     }).on('click', '#toButtom', function () {
       $('body, html').animate({ scrollTop: scrollHeight }, 600)
     })
   }
+
+  // $(document).on('mousewheel', function (e, delta) {
+  //   console.log(delta)
+  // })
+  $('#header').headroom({
+    offset : toTop,
+    classes: {
+        initial: "", 
+        pinned: "",
+        unpinned: "hide"
+    }
+  })
+
+  // to Buttom
+  // if ($('#sidebar').length) {
+  //   $(document).on('scroll', function () {
+  //     if ($(document).width() >= 800) {
+  //       if (($(this).scrollTop() < toButtom)) {
+  //         $('#toButtom').fadeIn()
+  //       } else {
+  //         $('#toButtom').fadeOut()
+  //       }
+  //     } else {
+  //       $('#toButtom').fadeIn()
+  //     }
+  //   }).on('click', '#toButtom', function () {
+  //     $('body, html').animate({ scrollTop: scrollHeight }, 600)
+  //   })
+  // }
   // to Top Image
   $('#toTop').on('mouseover', 'img', function () {
     $(this).attr('src', $(this).attr('src').replace('c.png', 'd.png'))
