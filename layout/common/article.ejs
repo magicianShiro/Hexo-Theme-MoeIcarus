@@ -66,6 +66,7 @@
     <%- partial('post/nav') %>
   <% } %>
 </article>
+<!--用来加载评论页面的 如果需要评论的页面没有这个会报错的 因为向disqus发送了请求 拿到了东西 但是最后没有一个容器让其插入-->
 <% if (!index) { %>
   <%- partial('comment/index') %>
 <% } %>

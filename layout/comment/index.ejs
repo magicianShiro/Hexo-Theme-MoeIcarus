@@ -1,3 +1,5 @@
+<!--这个因为没有传script 是用来加载页面的，因为最终disqus是用评论加载到 disqus_thread 元素中-->
+<!-- scripts文件是用来发请求拿到disqus数据的 -->
 <% if (post.comments) { %>
   <% if (theme.comment.disqus) { %>
     <section id="comments"><%- partial('comment/disqus') %></section>

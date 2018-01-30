@@ -1,4 +1,8 @@
-<%- partial('comment/scripts', { page: page }) %>
+<!--设置了无评论的页面不需要加载评论-->
+<% if (page.comment !== false) { %>
+  <%- partial('comment/scripts', { page: page }) %>
+<% } %>
+
 <%- partial('plugin/scripts') %>
 
 <!-- Custom Scripts -->
