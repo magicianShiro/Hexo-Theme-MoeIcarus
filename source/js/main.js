@@ -47,23 +47,11 @@
 
   if ($('#sidebar').length) {
     $(document).on('scroll', function () {
-      // 隐藏header
-      // console.log($(document).scrollTop())
-
-      // let currentScroll = $(this).scrollTop()
-      // let prevScoll = 0
-      // if (currentScroll - prevScoll > 100) {
-      //   $('#header').addClass('hide')
-      // }
-
       if ($(document).width() >= 800) {
         // to Top
         if (($(this).scrollTop() > toTop) && ($(this).scrollTop() > 0)) {
-          // $('#header').addClass('hide')
-
           $('#toTop').fadeIn()
         } else {
-          // $('#header').removeClass('hide')
           $('#toTop').fadeOut()
         }
         // to Buttom
